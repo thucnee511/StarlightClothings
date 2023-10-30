@@ -1,0 +1,147 @@
+#checkout{
+    display: block;
+    position: relative;
+
+    & .bg{
+        position relative;
+
+        display: block;
+        width: 100%;
+        height: auto;
+
+        & img{
+            display: block ;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    & .billing--info{
+        display: block ;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 999;
+        transform: translate(-50% , -50%);
+        width: 50rem;
+        padding: 6rem 3rem;
+        background-color: var(--white);
+        box-shadow: 0px 2px 20px 0px rgba(0 , 0 , 0 , .3);
+        border-radius: 5rem;
+
+        & .billing--info__title{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 1.5rem;
+        }
+
+        & .billing--info__subtitle{
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+        }
+
+        & .billing--list{
+            list-style-type: none;
+            display: block;
+            width: 100%;
+
+            & .billing--list__card{
+                display: flex ;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+
+                &.title{
+                    background-color: var(--black);
+                    color: var(--white) !important;
+                    font-size: 1.7rem;
+                    font-weight: 400;
+                    padding: .5rem ;
+                }
+
+                & .billing--card__item{
+                    width: 17rem;
+                    padding: 2rem;
+
+                    &:nth-child(1){
+                        font-size: 1.4rem;
+                        font-weight: 300;
+                        text-align: left;
+                    }
+
+                    &:nth-child(2){
+                        width: 8rem;
+                        text-align: center;
+                    }
+
+                    &:nth-child(3){
+                        color: var(--red);
+                        text-align: right;
+                    }
+
+                    &.title{
+                        font-size: 1.7rem;
+                        font-weight: 400;
+                        padding: .5rem ;
+                        color: var(--white) !important;
+                    }
+                }
+            }
+        }
+
+        & .billing--total{
+            position: relative;
+            display: flex ;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+
+            &::before{
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: .1rem;
+                background-color: var(--black);
+                margin-bottom: 2rem;
+            }
+
+            & .billing--total__text{
+                font-size: 2rem;
+                padding: 1rem;
+            }
+
+            & .billing--total__price{
+                color: var(--red);
+                padding: 2rem;
+            }
+        }
+
+        & input[type="submit"]{
+            display: block;
+            color: var(--black);
+            background-color: var(--white);
+            border: .1rem solid var(--black);
+            padding: 1.5rem 3rem;
+            position: relative;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            border-radius: 2.5rem;
+            cursor: pointer;
+            animattion: 1s ease;
+
+            &:hover{
+                background-color: var(--black);
+                color: var(--white);
+                animation: 1s ease;
+            }
+        }
+    }
+}

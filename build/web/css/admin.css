@@ -1,0 +1,197 @@
+.user--title{
+    font-size: 2.2rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+
+    &::after{
+        content:'';
+        display:block;
+        height: .1rem;
+        width: 100%;
+        background-color: var(--black);
+        margin-bottom: 2rem;
+    }
+}
+
+section{
+    min-height: 55rem;
+    padding-top: 2rem;
+
+    & .errorMsg{
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: var(--red);
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.user--list{
+    list-style-type: none;
+    display: block;
+    width: 100%;
+
+    & .user--list__card,
+    & .user--form{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin-bottom: 2rem;
+
+        & input[readonly=""]{
+            opacity: 0.7;
+        }
+
+        & input[type="text"]{
+            border: none;
+            color: var(--black);
+            border-bottom: .1rem solid rgba(46 , 46 , 46 ,.5);
+            text-align: center;
+            padding: 1rem;
+            padding-bottom: 0;
+            font-size: 1.7rem;
+
+            &:nth-child(2){
+                width: 3rem;
+                border: none;
+            }
+            &:nth-child(3){
+                width: 13rem;
+            }
+            &:nth-child(4){
+                width: 23rem;
+            }
+            &:nth-child(5){
+                width: 13rem;
+            }
+            &:nth-child(6){
+                width: 23rem;
+            }
+            &:nth-child(7){
+                width: 8rem;
+            }
+
+            &:focus{
+                outline:none;
+            }
+        }
+
+        & .user--card__update,
+        & .user--card__remove{
+            display: block;
+            width: 8rem;
+            text-align: center;
+            background-color: var(--black);
+            color: var(--white);
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            cursor: pointer;
+
+            &:nth-child(9){
+                background-color: var(--red);
+            }
+        }
+
+        &.title{
+            background-color: var(--black);
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 300 ;
+            margin-bottom: 1rem;
+
+            &::after{
+                display: none;
+            }
+
+            & p{
+                padding: 1rem;
+                text-align: center;
+
+                &:nth-child(1){
+                    width: 5rem;
+                }
+                &:nth-child(2){
+                    width: 15rem;
+                }
+                &:nth-child(3){
+                    width: 25rem;
+                }
+                &:nth-child(4){
+                    width: 15rem;
+                }
+                &:nth-child(5){
+                    width: 25rem;
+                }
+                &:nth-child(6){
+                    width: 10rem;
+                }
+                &:nth-child(7){
+                    width: 10rem;
+                }
+                &:nth-child(8){
+                    width: 10rem;
+                }
+            }
+        }
+    }
+}
+
+.user--list__card{
+    padding: 1rem;
+
+    &::after{
+        content: '';
+        display: block;
+        background-color: var(--black);
+        width: 95%;
+        height: .1rem;
+        opacity: .5;
+        position: absolute;
+        bottom: 0;
+        left:50%;
+        transform: translateX(-50%);
+    }
+}
+
+.search--bar{
+    display:flex;
+    width: 100%;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    & .search--input{
+        width: 55rem;
+        height: 3rem;
+        border: .1rem solid var(--black);
+        font-size: 2rem;
+        font-weight: 200;
+        padding-left: .5rem;
+        margin-bottom: 2rem;
+
+        &:focus{
+            outline:none;
+        }
+    }
+
+    & .search--icon{
+        display: block;
+        background-color: var(--black);
+        color: var(--white);
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        border: .1rem solid var(--black);
+        cursor: pointer;
+        margin-bottom: 2rem;
+    }
+}

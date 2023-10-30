@@ -1,0 +1,138 @@
+body{
+    background-image: url(../images/backgrounds/login_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+label, input{
+    display: block;
+    width: 100%;
+    font-weight: 400;
+}
+
+.container{
+    position: absolute;
+    width: 60rem;
+    height: 100%;
+    display: flex ;
+    background-color: #ffffff;
+    flex-direction: column;
+    padding: 7rem .5rem;
+    right: 0;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.form--block{
+    width: 40rem;
+    animation: .5s ease-in-out;
+}
+.actived{
+    display: block;
+}
+
+.form--block__title{
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 6rem;
+}
+
+.form--label{
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+.form--label::after{
+    display: inline-block;
+    content: "*";
+    font-size: 1.2rem;
+    color: red;
+    margin-left: .5rem;
+}
+
+.form--input__text{
+    font-size: 2rem;
+    height: 2.5rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-bottom: .1rem solid var(--black);
+}
+
+.form--input__text:focus{
+    outline: none;
+}
+
+.form--input__button{
+    width: 80%;
+    margin: 2rem auto;
+    height: 3.5rem;
+    border-radius: 1.75rem;
+    border: .1rem solid var(--black);
+    color: var(--black);
+    background-color: var(--white);
+    animation: .5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.form--input__button:hover{
+    color: var(--white);
+    background-color: var(--black);
+    animation: .5s ease-in-out;
+}
+
+.form--line{
+    position: relative;
+    display: block;
+    font-size: 1.2rem;
+    width: 10rem;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.form--line::before, .form--line::after{
+    content:'';
+    display: block;
+    height: .2rem;
+    width: 15rem;
+    background-color: var(--black);
+    opacity: .5;
+    position: absolute;
+}
+.form--line::before{
+    right:100%;
+    top: 50%;
+}
+.form--line::after{
+    left:100%;
+    top: 50%;
+}
+
+.changestate{
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rem;
+}
+.changestate__message, .changestate__button{
+    display: block;
+}
+.changestate__button{
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+
+#login__error, #signup__error{
+    font-size: 1.3rem;
+    color: red;
+    margin-top: 1rem;
+}

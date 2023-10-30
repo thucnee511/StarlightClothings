@@ -1,0 +1,24 @@
+.container{
+    max-width: 132rem;
+    padding: .5rem;
+    margin: 0 auto;
+}
+
+#error{
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    & .error__bg{
+        display: block;
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        & img{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
