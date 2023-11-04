@@ -37,12 +37,42 @@ public class CartDAO {
     private static final String DELETE_CART_PRODUCT
             = "DELETE FROM [dbo].[Cart]"
             + "WHERE [UserID] = ? AND [ProductID] = ?";
+    private static final String DELETE_ERROR_CHECKOUT
+            = "DELETE FROM [dbo].[Orders]"
+            + "WHERE [OrderID] = ?";
+    private static final String DELETE_ERROR_CHECKOUT_DETAIL
+            = "DELETE FROM [dbo].[OrdersDetails]"
+            + "WHERE [OrderID] = ?";
     private static final String CHECKOUT
             = "INSERT INTO [dbo].[Orders] ([OrderID],[UserID],[Total])"
             + "     VALUES (?,?,?)";
     private static final String ADD_ORDER_DETAIL
             = "INSERT INTO [dbo].[OrdersDetails]([OrderID],[ProductID],[Quantity],[Total])"
             + "     VALUES (?,?,?,?)";
+
+    public boolean deleteErrorOrder(String orderID)
+            throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stm = null;
+
+        con = DBContext.getConnection();
+
+        stm = con.prepareStatement(DELETE_ERROR_CHECKOUT_DETAIL);
+        stm.setString(1, orderID);
+        stm.executeUpdate();
+
+        stm = con.prepareStatement(DELETE_ERROR_CHECKOUT);
+        stm.setString(1, orderID);
+        stm.executeUpdate();
+
+        if (stm != null) {
+            stm.close();
+        }
+        if (con != null) {
+            con.close();
+        }
+        return true;
+    }
 
     public CartDTO getCart(String userID)
             throws ClassNotFoundException, SQLException {

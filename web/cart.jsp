@@ -17,18 +17,27 @@
         <jsp:include page="header.jsp"></jsp:include>
             <section id="cart">
                 <div class="container">
-                    <div class="cart--left">
-                        <p class="card--left__title">Your cart</p>
-                        <ul class="product--list">
-                            <li class="product--list__card title">
-                                <p class="product--card__number">No.</p>
-                                <p class="product--card__info">Information</p>
-                                <p class="product--card__quantity">Quantity</p>
-                                <p class="product--card__price">Unit Price</p>
-                                <p class="product--card__total">Total</p>
-                                <p class="product--card__update">Update</p>
-                                <p class="product--card__remove">Delete</p>
-                            </li>
+                    <div class="cart--top">
+                        <div class="errorMsg">
+                        ${errorMsg}
+                    </div>
+                    <div class="successMsg">
+                        ${successMsg}
+                    </div>
+                </div>
+
+                <div class="cart--left">
+                    <p class="card--left__title">Your cart</p>
+                    <ul class="product--list">
+                        <li class="product--list__card title">
+                            <p class="product--card__number">No.</p>
+                            <p class="product--card__info">Information</p>
+                            <p class="product--card__quantity">Quantity</p>
+                            <p class="product--card__price">Unit Price</p>
+                            <p class="product--card__total">Total</p>
+                            <p class="product--card__update">Update</p>
+                            <p class="product--card__remove">Delete</p>
+                        </li>
                         <c:forEach items="${CART_PRODUCT_LIST}" var="o">
                             <li class="product--list__card">
                                 <form data-id="${o.productID}" class="product--form" action="main" method="POST">
@@ -40,9 +49,9 @@
                                         <p class="product--card__name">${o.name}</p>
                                     </div>
                                     <div class="product--card__quantity">
-                                        <div id="inc" class="product--card__button" onClick="increaseQuantity(${o.productID})">+</div>
-                                        <input data-id="${o.productID}" id="" type="number" name="quantity" value="${o.quantity}" min="1" max="10" readonly/>
                                         <div id="dec" class="product--card__button" onClick="decreaseQuantity(${o.productID})">-</div>
+                                        <input data-id="${o.productID}" id="" type="number" name="quantity" value="${o.quantity}" min="1" max="50" readonly/>
+                                        <div id="inc" class="product--card__button" onClick="increaseQuantity(${o.productID})">+</div>
                                     </div>
                                     <p class="product--card__price">${o.price}$</p>
                                     <p class="product--card__total">${o.price * o.quantity}$</p>

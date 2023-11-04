@@ -27,12 +27,13 @@ import starlight.model.user.UserDTO;
 public class Checkout extends HttpServlet {
 
     private static final String SUCCESS = "checkout.jsp";
-    private static final String ERROR = "error.jsp";
+    private static final String ERROR_PAGE = "error.jsp";
+    private static final String ERROR = "cart";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        String url = ERROR_PAGE;
         try {
             HttpSession session = request.getSession();
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
@@ -44,24 +45,40 @@ public class Checkout extends HttpServlet {
                 CartDTO userCart = cartDao.getCart(user.getId());
                 List<ProductDTO> cartPList = userCart.getCart();
                 if (cartPList.isEmpty()) {
+                    request.setAttribute("errorMsg", "Your cart does not have product(s) to checkout!!!");
                     url = ERROR;
                 } else {
-                    url = SUCCESS;
                     List<ProductDTO> pList = pDao.getAllProducts();
-                    cartDao.removeCart(user.getId());
                     String orderID = cartDao.addOrder(user.getId(), total);
                     for (ProductDTO cartProduct : cartPList) {
                         cartProduct.setName(getProductName(cartProduct.getProductID(), pList));
+                        int cQuan = cartProduct.getQuantity();
+                        int pQuan = getProductQuantity(cartProduct.getProductID(), pList);
+                        if (cQuan > pQuan) {
+                            url = ERROR;
+                            request.setAttribute("errorMsg", "Remaining product(s)' quantity do not enough to checkout!!!");
+                            cartDao.deleteErrorOrder(orderID);
+                            throw new Exception("Remaining product(s)' quantity do not enough");
+                        }
                         int totalPrice = cartProduct.getQuantity() * getProductPrice(cartProduct.getProductID(), pList);
                         cartProduct.setPrice(totalPrice);
                         cartDao.addOrder(orderID, cartProduct.getProductID(), cartProduct.getQuantity(), totalPrice);
                     }
+                    for (ProductDTO cartProduct : cartPList) {
+                        int cQuan = cartProduct.getQuantity();
+                        int pQuan = getProductQuantity(cartProduct.getProductID(), pList);
+                        pDao.updateProductQuantity(cartProduct.getProductID(), pQuan - cQuan);
+                    }
+                    cartDao.removeCart(user.getId());
                     request.setAttribute("CART_PRODUCT_LIST", cartPList);
                     request.setAttribute("ORDER_TOTAL", total);
+                    url = SUCCESS;
                 }
             }
         } catch (Exception e) {
-            log("Error at cart servlet: " + e.toString());
+            if (!e.toString().contains("quantity")) {
+                log("Error at cart servlet: " + e.toString());
+            }
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
@@ -80,6 +97,15 @@ public class Checkout extends HttpServlet {
         for (ProductDTO p : pList) {
             if (productID.equals(p.getProductID())) {
                 return p.getPrice();
+            }
+        }
+        return 0;
+    }
+
+    private static int getProductQuantity(String productID, List<ProductDTO> pList) {
+        for (ProductDTO p : pList) {
+            if (productID.equals(p.getProductID())) {
+                return p.getQuantity();
             }
         }
         return 0;

@@ -8,10 +8,10 @@ const decreaseQuantity = (dataId) => {
 const increaseQuantity = (dataId) => {
     const input = document.querySelector(`input[data-id='${dataId}']`);
     let value = parseInt(input.value);
-    if (value === 9) {
-        value = 0;
+    const maxvalue = input.getAttribute("max");
+    if (value < maxvalue) {
+        value++;
     }
-    value++;
     input.value = value;
 };
 

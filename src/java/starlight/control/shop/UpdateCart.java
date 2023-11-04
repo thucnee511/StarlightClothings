@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import starlight.model.shop.CartDAO;
+import starlight.model.shop.ProductDAO;
+import starlight.model.shop.ProductDTO;
 import starlight.model.user.UserDTO;
 
 /**
@@ -35,8 +37,16 @@ public class UpdateCart extends HttpServlet {
             String productID = request.getParameter("productID");
             String quantity = request.getParameter("quantity");
             CartDAO cDao = new CartDAO();
-            cDao.updateCart(user.getId(), productID, quantity);
-            url = SUCCESS;
+            ProductDAO pDao = new ProductDAO();
+            ProductDTO p = pDao.getroduct(productID);
+            if (p.getQuantity() < Integer.parseInt(quantity)) {
+                url = ERROR;
+                request.setAttribute("errorMsg", "Remaining product(s) do not enough to update!!!");
+            } else {
+                cDao.updateCart(user.getId(), productID, quantity);
+                request.setAttribute("successMsg", "Cart update successfully!!!");
+                url = SUCCESS;
+            }
         } catch (Exception e) {
             log("Error at update cart servlet: " + e.toString());
         } finally {
