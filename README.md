@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I'm Thuc (Neru)</h1>
 - This is a school's class assignment **Java web application project**
 
-- 💬 This project using **Java Servlet with MVC2, JSTL taglib, Javascript, HTML, CSS, Bootstrap5**
+- This project using **Java, Javascript, HTML, CSS, Bootstrap5**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
