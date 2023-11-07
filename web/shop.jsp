@@ -67,7 +67,7 @@
                                                 <div class="product--cart__quantity">
                                                     <p class="product--add__text">Quantity: </p>
                                                     <div id="dec" class="product--card__button" onClick="decreaseQuantity(${o.productID})">-</div>
-                                                    <input data-id="${o.productID}" id="" type="number" name="quantity" value="1" min="1" max="${o.quantity}" readonly/>
+                                                    <input data-id="${o.productID}" id="" type="number" name="quantity" value="0" min="0" max="${o.quantity}" readonly/>
                                                     <div id="inc" class="product--card__button" onClick="increaseQuantity(${o.productID})">+</div>
                                                 </div>
                                                 <input type="submit" name="action" value="Add to Cart"/>

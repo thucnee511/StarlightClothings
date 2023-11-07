@@ -1,8 +1,10 @@
 const decreaseQuantity = (dataId) => {
     const input = document.querySelector(`input[data-id='${dataId}']`);
     let value = parseInt(input.value);
-    if (value > 0)
+    const minValue = input.getAttribute("min");
+    if (value > minValue) {
         value--;
+    }
     input.value = value;
 };
 const increaseQuantity = (dataId) => {

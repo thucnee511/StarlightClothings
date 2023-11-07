@@ -26,7 +26,7 @@
                         <p class="hero--content__minititle">NEW ARRIVAL COLLECTIONS</p>
                         <p class="hero--content__title">Autumn - Winter 2023 Collection</p>
                         <p class="hero--content__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et metus lectus. Etiam volutpat id est sit amet consequat. Suspendisse commodo metus odio, ac lobortis velit interdum ut.</p>
-                        <div class="hero--content__button"><a href="main?action=Shop">SHOP NOW</a></div>
+                        <div class="hero--content__button"><a href="main?action=Shop&cateID=0">SHOP NOW</a></div>
                     </div>
                 </div>
             </section>

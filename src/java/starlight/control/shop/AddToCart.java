@@ -45,16 +45,21 @@ public class AddToCart extends HttpServlet {
                 } else {
                     String productID = request.getParameter("productID");
                     int quantity = Integer.parseInt(request.getParameter("quantity"));
-                    CartDAO cartDao = new CartDAO();
-                    CartDTO cart = cartDao.getCart(user.getId());
-                    ProductDAO pDao = new ProductDAO();
-                    ProductDTO p = pDao.getroduct(productID);
-                    p.setQuantity(quantity);
-                    cart.add(p);
-                    cartDao.removeCart(user.getId());
-                    cartDao.updateCart(user.getId(), cart);
-                    request.setAttribute("successMsg", quantity + " " + p.getName() + " has been added to your cart!");
-                    url = SUCCESS;
+                    if (quantity == 0) {
+                        url = ERROR;
+                        request.setAttribute("errorMsg", "Cannot ad product with quantity 0!!!");
+                    } else {
+                        CartDAO cartDao = new CartDAO();
+                        CartDTO cart = cartDao.getCart(user.getId());
+                        ProductDAO pDao = new ProductDAO();
+                        ProductDTO p = pDao.getroduct(productID);
+                        p.setQuantity(quantity);
+                        cart.add(p);
+                        cartDao.removeCart(user.getId());
+                        cartDao.updateCart(user.getId(), cart);
+                        request.setAttribute("successMsg", quantity + " " + p.getName() + " has been added to your cart!");
+                        url = SUCCESS;
+                    }
                 }
             }
         } catch (Exception e) {

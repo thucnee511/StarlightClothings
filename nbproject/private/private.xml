@@ -3,21 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/control/shop/Cart.java</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/web/cart.jsp</file>
             <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/web/js/shop.js</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/control/users/Administraor.java</file>
             <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/web/shop.jsp</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/model/shop/ProductDTO.java</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/control/shop/UpdateCart.java</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/model/shop/ProductDAO.java</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/control/users/DeleteUser.java</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/model/shop/CartDAO.java</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/web/css/cart.css</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/control/shop/Shop.java</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/web/css/shop.css</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/web/js/cart.js</file>
-            <file>file:/C:/FPTU/FA23_Block10w/PRJ301/SE171089_Assignment/src/java/starlight/control/shop/Checkout.java</file>
         </group>
     </open-files>
 </project-private>
